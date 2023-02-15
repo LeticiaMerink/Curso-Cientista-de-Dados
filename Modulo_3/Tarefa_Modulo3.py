@@ -9,12 +9,17 @@
 # todos os valores pares encontrados.
 
 
-# In[4]:
+# In[5]:
 
+
+def identificaPares(lista): # construção da função sempre com def
+    nova_lista = [x for x in lista if x%2==0]
+    return nova_lista  # uma função SEMPRE tem do retorno
 
 lista = [1,2,3,4,5]
+nova_lista = identificaPares(lista) #nova_lista recebe o retorno da função identificaPares
 
-nova_lista = [x for x in lista if x%2==0]
+
 print(nova_lista)
 
 
@@ -52,13 +57,15 @@ for i in range(usuario): # para cada i dentro de um range(usuario)
 # código deve impedir que o usuário saque mais do que ele tem em saldo.
 
 
-# In[8]:
+# In[3]:
 
 
 class Cliente:
     
     # Atributos
     def __init__(self, nome, saldo): # __init__ é o método construtor
+        # o self é necessário porque quando você quiser construir de fato um veículo, vc passará os atributos dele e o
+        # programa vai entender que eles serão atribuídos a esse objeto mesmo que tá sendo criado.
         self.nome = nome
         self.saldo = 0 
         
@@ -68,19 +75,19 @@ class Cliente:
         
     def depositar(self, valor):
         self.saldo += valor
-        print("Seu novo saldo é: ", self.saldo)
+        print("Seu novo saldo é: R$ ", self.saldo)
         
     def sacar(self, valor):
         if self.saldo >= valor:
             self.saldo -= self.saldo - valor
-            print("Valor sacado: R$ ",self.saldo)
+            print("Valor sacado: R$ ", self.saldo)
             return True
         else:
             print("Saldo indisponível.")
             return False   
 
 
-# In[9]:
+# In[4]:
 
 
 cliente = Cliente("Leticia", 0)
